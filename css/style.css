@@ -1,0 +1,365 @@
+body{
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/olotu2.png");
+    position: relative;
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    background-color: #09031beb;
+}
+.container{
+    display: flex;
+    padding: 80px 30px 30px 30px;
+    /* text-align: center; */
+}
+.profile, .feedback{
+    padding: 0px 40px;
+    flex: 0.7;
+}
+.slider{
+    flex: 1;
+}
+.profile{
+    color: aliceblue;
+}
+.profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.profile div{
+    /* text-align: center; */
+}
+.profile h2{
+    font-size: 1.8em;
+}
+.profile h3{
+    margin: 0px;
+    background-color: rgb(7, 65, 5);
+    display: inline-block;
+    padding: 5px 20px 2px 8px;
+    border-radius: 20px 80px 0px 0px;
+    color: aliceblue;
+}
+.profile p{
+    display: inline-block;
+    border-top: solid thin rgb(7, 65, 5);
+    margin-top: 0px;
+    padding-top: 2px;
+}
+
+.feedback{
+}
+
+
+
+/* Slider starts here*/
+div#slidediv{
+    border-radius: 100px;
+    width: 100%;
+    height: 50%;
+    margin: 0 auto;
+    border: solid thin rgb(54, 34, 34);
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    background-color: rgb(15, 15, 75);
+}
+div#slidediv::after {
+    border-radius: 100px;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 38px #000000 inset;
+    -moz-box-shadow: 0px 0px 38px #000000 inset;
+    box-shadow: 0px 0px 38px #000000 inset;
+}
+
+#slidetext1, #slidetext2, #slidetext3, #slidetext4, #slidetext5{
+    display: none;
+}
+div#slidediv img{
+    width: 100%;
+    height: 100%;
+}
+div .firsth2, div .secondh2, div .thirdh2, div .fourthh2, div .fifthh2{
+    font-size: 1.7em;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 50%;
+    color: rgb(19, 6, 6);
+    text-align: center;
+    width: 100%;
+}
+div .firstp, div .secondp, div .thirdp, div .fourthp, div .fifthp{
+    font-size: 1.2em;
+    color: rgb(10, 11, 27);
+    position: absolute;
+    top: 60%;
+    text-align: center;
+    width: 100%;
+}
+
+
+/*First slide*/
+div .firsth2{
+    -webkit-animation: moveh2 2s; /* Safari 4.0 - 8.0 */
+    animation: moveh2 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes moveh2 {
+    from {top: 0px;}
+    to {top: 50%;}
+}
+
+/* Standard syntax */
+@keyframes moveh2 {
+    from {top: 0px;}
+    to {top: 50%;}
+}
+div .firstp{
+    -webkit-animation: movep 2s; /* Safari 4.0 - 8.0 */
+    animation: movep 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movep {
+    from {left: -60%;}
+    to {left: 0px;}
+}
+
+/* Standard syntax */
+@keyframes movep {
+    from {left: -60%;}
+    to {left: 0px;}
+}
+
+
+/*second slide*/
+div .secondh2{
+    -webkit-animation: movesecondh2 2s; /* Safari 4.0 - 8.0 */
+    animation: movesecondh2 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movesecondh2 {
+    from {left: -90%;}
+    to {left: 0px;}
+}
+
+/* Standard syntax */
+@keyframes movesecondh2 {
+    from {left: -90%;}
+    to {left: 0px;}
+}
+div .secondp{
+    -webkit-animation: movesecondp 2s; /* Safari 4.0 - 8.0 */
+    animation: movesecondp 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movesecondp {
+    from {right: -60%;}
+    to {right: 0px;}
+}
+
+/* Standard syntax */
+@keyframes movesecondp {
+    from {right: -60%;}
+    to {right: 0px;}
+}
+
+/*Third slide*/
+div .thirdh2{
+    -webkit-animation: movethirdh2 2s; /* Safari 4.0 - 8.0 */
+    animation: movethirdh2 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movethirdh2 {
+    0% {left: -50%;}
+    to {left: 0px;}
+}
+
+/* Standard syntax */
+@keyframes movethirdh2 {
+    0% {top: -5%;}
+    40% {top: 100%;}
+    60% {top: -2%;}
+}
+div .thirdp{
+    -webkit-animation: movethirdp 2s; /* Safari 4.0 - 8.0 */
+    animation: movethirdp 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movethirdp {
+    0% {top: 100%;}
+    50% {top: 100%;}
+}
+
+/* Standard syntax */
+@keyframes movethirdp {
+    0% {top: 100%;}
+    50% {top: 100%;}
+}
+
+/*Fourth slide*/
+div .fourthh2{
+    -webkit-animation: movefourthh2 2s; /* Safari 4.0 - 8.0 */
+    animation: movefourthh2 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movefourthh2 {
+    0% {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes movefourthh2 {
+    0% {opacity: 0;}
+    to {opacity: 1;}
+}
+div .fourthp{
+    -webkit-animation: movefourthp 2s; /* Safari 4.0 - 8.0 */
+    animation: movefourthp 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movefourthp {
+    0% {top: 100%; transform: skewY(20deg)}
+    100% {}
+}
+
+/* Standard syntax */
+@keyframes movefourthp {
+    0% {top: 100%; transform: skewY(20deg)}
+    100% {}
+}
+/*Fifty slide*/
+div .fifthh2{
+    -webkit-animation: movefifthh2 2s; /* Safari 4.0 - 8.0 */
+    animation: movefifthh2 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movefifthh2 {
+    0% {left: 100%;}
+    40% {right: -100%;}
+    100% {}
+}
+
+/* Standard syntax */
+@keyframes movefifthh2 {
+    0% {left: -100%;}
+    40% {right: -100%;}
+    100% {left: 0; right: 0;}
+}
+div .fifthp{
+    -webkit-animation: movefifthp 2s; /* Safari 4.0 - 8.0 */
+    animation: movefifthp 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movefifthp {
+    0% {font-size: 0px}
+}
+
+/* Standard syntax */
+@keyframes movefifthp {
+    0% {font-size: 0px}
+}
+
+
+/*First image fade*/
+.fade1{
+    -webkit-animation: fade1 2s; /* Safari 4.0 - 8.0 */
+    animation: fade1 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fade1 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes fade1 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/*Second image fade*/
+.fade2{
+    -webkit-animation: fade2 2s; /* Safari 4.0 - 8.0 */
+    animation: fade2 2s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fade2 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes fade2 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+
+/*Third image fade*/
+.fade3{
+    -webkit-animation: fade3 2s; /* Safari 4.0 - 8.0 */
+    animation: fade3 2s;
+    position: relative;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fade3 {
+    0% {top: 310px;}
+    40% {top: -310px;}
+    100% {top: 0px;}
+}
+
+/* Standard syntax */
+@keyframes fade3 {
+    0% {top: 310px;}
+    40% {top: -310px;}
+    100% {top: 0px;}
+}
+
+/*Fourth image fade*/
+.fade4{
+    -webkit-animation: fade4 2s; /* Safari 4.0 - 8.0 */
+    animation: fade4 2s;
+    position: relative;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fade4 {
+    0% {width: 0px; height: 0px; top: 50%;}
+    100% {top: 0px;}
+}
+
+/* Standard syntax */
+@keyframes fade4 {
+    0% {width: 0px; height: 0px; top: 50%;}
+    100% {top: 0px;}
+}
+
+/*Fifth image fade*/
+.fade5{
+    -webkit-animation: fade5 2s; /* Safari 4.0 - 8.0 */
+    animation: fade5 2s;
+    position: relative;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fade5 {
+    0% {top: -100%; right: -100%; border-radius: 90%;}
+    100% {top: 0px; right: 0px;}
+}
+
+/* Standard syntax */
+@keyframes fade5 {
+    0% {top: -100%; right: -100%; border-radius: 90%;}
+    100% {top: 0px; right: 0px;}
+}
+
+/*slider ends here*/
