@@ -1,0 +1,168 @@
+body{
+    margin: 0px;
+    background-color: rgb(6, 141, 40);
+}
+.container{
+    display: flex;
+}
+.first{
+    flex: 2;
+    text-align: center;
+    padding-top: 50px;
+}
+.first> div{
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+}
+.first div img:first-child{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.first div img:last-child{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.first div img:last-child:hover{
+    -webkit-filter: invert(100%); /* Safari */
+    filter: invert(100%);
+    cursor: pointer;
+}
+#profileuploadhide{
+    display: none;
+}
+
+.first >span> button{
+    display: inline-block;
+    width: 130px;
+    margin: 20px;
+    padding: 10px 0px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: rgb(26, 24, 116);
+    border: none;
+    transition: 0.3s;
+}
+.first >span>button img{
+    width: 15px;
+    height: 15px;
+}
+.first >span>button:hover{
+    color: rgb(236, 236, 245);
+    background-color: rgb(26, 24, 116);
+}
+.first > span> button:hover img{
+    -webkit-filter: invert(100%); /* Safari */
+    filter: invert(100%);
+}
+.first span{
+    position: relative;
+}
+.first span div button{
+    border: none;
+    color: rgb(211, 216, 218);
+    background-color: rgb(3, 22, 4);
+    border: rgb(213, 219, 219) solid thin;
+    margin-top: 5px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.first span div button:hover{
+    color: rgb(3, 22, 4);
+    background-color: rgb(211, 216, 218);
+    border: rgb(3, 22, 4) solid thin;
+}
+.skillsedit, .hobbiesedit, .bioedit{
+    display: none;
+    position: absolute;
+    top: -11px;
+    left: 150px;
+    animation: edit 1.5s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes edit {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes edit {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.first >span input{
+    height: 25px;
+    padding: 5px;
+}
+.second{
+    flex: 6;
+    padding: 50px 20px 10px 20px;
+    text-align: center;
+}
+.second > h1{
+    margin: 0px 0px 20px 0px;
+    color: aqua;
+}
+.second div{
+    text-align: center;
+}
+.clear{
+    clear: both;
+}
+.second div h1{
+    font-size: 1.5em;
+    color: rgb(225, 229, 233);
+}
+.second div p{
+    color: rgb(159, 166, 172);
+}
+.second div img{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
+.text{
+    display: inline-block;
+}
+.img{
+    float: right;
+}
+.third{
+    flex: 4;
+    padding-top: 30px;
+    text-align: center;
+}
+.third h2{
+    color: rgb(200, 255, 0);
+}
+.third input, .third textarea{
+    width: 80%;
+    padding: 10px;
+}
+.third input, .third textarea, #submit, #upload{
+    border-radius: 10px;
+}
+.third textarea{
+    margin: 10px 0px;
+}
+#uploadhide{
+    display: none;
+}
+#submit{
+    border: none;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    font-size: 1em;
+}
+#upload{
+    border: none;
+    padding: 5px 10px;
+}
