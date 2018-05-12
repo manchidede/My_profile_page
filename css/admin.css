@@ -35,7 +35,7 @@ body{
     filter: invert(100%);
     cursor: pointer;
 }
-#profileuploadhide{
+#profileuploadhide, #projectuploadhide{
     display: none;
 }
 
@@ -147,22 +147,33 @@ body{
     width: 80%;
     padding: 10px;
 }
-.third input, .third textarea, #submit, #upload{
+.third input, .third textarea, #submit, #projectupload{
     border-radius: 10px;
 }
 .third textarea{
     margin: 10px 0px;
 }
-#uploadhide{
-    display: none;
+#projectupload:hover, #submit:hover{
+    background-color: rgb(34, 36, 10);
+    color: aliceblue;
 }
 #submit{
     border: none;
     padding: 5px 10px;
     margin: 10px 0px;
     font-size: 1em;
+    transition: 0.3s;
 }
-#upload{
+#projectupload{
     border: none;
     padding: 5px 10px;
+    transition: 0.3s;
+}
+#imgpreview{
+    margin: 0px 0px -8px 5px;
+    height: 30px;
+    width: 40px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    display: none;
 }

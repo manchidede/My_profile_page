@@ -1,18 +1,18 @@
-var pictures=["images/slide1.jpg","images/slide2.jpg","images/slide3.jpg","images/slide4.jpg","images/slide5.jpg"]
-var imgslide = document.getElementById('slidediv').getElementsByTagName("img")[0];
+var img1 = document.getElementById("img1");
+var h1 = document.getElementById("h1");
+var p1 = document.getElementById("p1");
 var slidetext1 = document.getElementById("slidetext1");
-var slidetext2 = document.getElementById("slidetext2");
-var slidetext3 = document.getElementById("slidetext3");
-var slidetext4 = document.getElementById("slidetext4");
-var slidetext5 = document.getElementById("slidetext5");
 function slide(){
-    //Like button
+
+//Like button
     var imglike=document.getElementById("imglike");
     var liketxt=document.getElementById("liketxt");
     imglike.onclick=function(){
         var numlike=parseInt(liketxt.innerHTML,10);
         liketxt.innerHTML= numlike+1;
-        //Ajax number of likes
+
+
+//Ajax send number of likes
     var likedata={like:numlike+1}; 
     $.ajax({
         method:"post",
@@ -28,16 +28,35 @@ function slide(){
             
 //End Ajax number of likes
     }
+//Like button ends
 
-    //Star rating
+
+//Star rating
+
     var starrate=document.getElementById("star").getElementsByTagName("img");
+    var staraverageimg=document.getElementById("starAverage").getElementsByTagName("img");
     var total=document.getElementById("total");
     var totalint;
     var average=document.getElementById("average");
     var averageint;
+    var newaverage;
     var i;
     var starlen=starrate.length;
 
+
+//Set progress bar onload
+totalint=parseInt(total.innerHTML,10);
+function progressb(id,n){
+    var width=(parseInt(document.getElementById(id).innerHTML,10)/totalint)*100;
+    console.log(document.getElementById(id).innerHTML);
+document.getElementsByClassName("bar1")[n].style.width= width + '%';
+}
+progressb("star1",4);
+progressb("star2",3);
+progressb("star3",2);
+progressb("star4",1);
+progressb("star5",0);
+//Set progress bar onload ends
 
 function starcalc(starid,num){
     var newnum=parseInt((document.getElementById(starid).innerHTML))+1;
@@ -47,9 +66,54 @@ function starcalc(starid,num){
             total.innerHTML=totalint;
 
             averageint=parseFloat(average.innerHTML,10);
-            average.innerHTML=(((num-averageint)/totalint)+averageint).toFixed(2);
+            newaverage=(((num-averageint)/totalint)+averageint).toFixed(2);
+            average.innerHTML=newaverage;
 
-            //Ajax
+//star img full script
+function starimgfullfunct(n){
+//reset star to empty
+for(var x=0;x<=4;x++){
+    staraverageimg[x].src="images/starempty.png";
+}
+//set star
+    for(var x=0;x<=n;x++){
+        staraverageimg[x].src="images/starfull.png";
+}
+}
+    if(newaverage>=4.5){
+        starimgfullfunct(4);
+    }
+    if(newaverage>=3.5 && newaverage<4.5){
+        starimgfullfunct(3);
+    }
+    if(newaverage>=2.5 && newaverage<3.5){
+        starimgfullfunct(2);
+    }
+    if(newaverage>=1.5 && newaverage<2.5){
+        starimgfullfunct(1);
+    }
+    if(newaverage<1.5){
+        starimgfullfunct(0);
+    }
+
+//progress bar
+//reset progress bar
+for(var x=0;x<=4;x++){
+    document.getElementsByClassName("bar1")[x].style.width = '0%';
+}
+//set progress bar onclick
+function progressbar(id,n){
+    var width=(parseInt(document.getElementById(id).innerHTML,10)/totalint)*100;
+    console.log(document.getElementById(id).innerHTML);
+document.getElementsByClassName("bar1")[n].style.width= width + '%';
+}
+progressbar("star1",4);
+progressbar("star2",3);
+progressbar("star3",2);
+progressbar("star4",1);
+progressbar("star5",0);
+
+//Ajax star rating
             var star=starid+'='+newnum;
             $.ajax({
                 method:"post",
@@ -102,62 +166,57 @@ for (i = 0; i < starlen; i++) {
     }
 }
 
+//slider Ajax
+$.ajax({
+    method:"post",
+    dataType: "json",
+    url:"sliderfetch.php",
+    success: function(data){
+        console.log(data[0][2]);
+        console.log(data.length);
 
+        h1.innerHTML=data[0][0];
+        p1.innerHTML=data[0][1];
+        img1.src=data[0][2];
+        img1.className = "fade1";
+        changepic(0,data);
 
+    },
+    error: function(e){
+        console.log(e);
+    }
+});
  
-
-
-    //slider
-    imgslide.src=pictures[0];
-    imgslide.className = "fade1";
-    slidetext1.style.display = "block";
-    changepic(0);
 }
-function changepic(n){
-    imgslide.src=pictures[n%pictures.length];
-    switch(n%pictures.length) {
+function changepic(n,data){
+    h1.innerHTML=data[n%5][0];
+    p1.innerHTML=data[n%5][1];
+    img1.src=data[n%5][2];
+
+function classChange(img,h,p){
+    img1.className = img;
+        h1.className=h;
+        p1.className=p;
+}
+
+    switch(n%5) {
         case 0:
-        imgslide.className = "fade1";
-        slidetext1.style.display = "block";
-        slidetext2.style.display = "none";
-        slidetext3.style.display = "none";
-        slidetext4.style.display = "none";
-        slidetext5.style.display = "none";
+        classChange("fade1","firsth2","firstp");
             break;
         case 1:
-        imgslide.className = "fade2";
-        slidetext1.style.display = "none";
-        slidetext2.style.display = "block";
-        slidetext3.style.display = "none";
-        slidetext4.style.display = "none";
-        slidetext5.style.display = "none";
+        classChange("fade2","secondh2","secondp");
             break;
         case 2:
-        imgslide.className = "fade3";
-        slidetext1.style.display = "none";
-        slidetext2.style.display = "none";
-        slidetext3.style.display = "block";
-        slidetext4.style.display = "none";
-        slidetext5.style.display = "none";
+        classChange("fade3","thirdh2","thirdp");
         break;
         case 3:
-        imgslide.className = "fade4";
-        slidetext1.style.display = "none";
-        slidetext2.style.display = "none";
-        slidetext3.style.display = "none";
-        slidetext4.style.display = "block";
-        slidetext5.style.display = "none";
+        classChange("fade4","fourthh2","fourthp");
         break;
         case 4:
-        imgslide.className = "fade5";
-        slidetext1.style.display = "none";
-        slidetext2.style.display = "none";
-        slidetext3.style.display = "none";
-        slidetext4.style.display = "none";
-        slidetext5.style.display = "block";
+        classChange("fade5","fifthh2","fifthp");
         break;
         default:
         break;
     }
-    setTimeout(function(){changepic(n+1);},3000);
+    setTimeout(function(){changepic(n+1,data);},3000);
 }
