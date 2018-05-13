@@ -49,6 +49,7 @@ $conn = null;
                 <div class="slider">
                 <h2>Recent Projects Completed</h2>
                         <div id="slidediv">
+                        <span id="previous"><</span><span id="next">></span>
                                 <img id="img1" />
                                 <span id="slidetext1">
                                 <h2 class="firsth2" id="h1"></h2>

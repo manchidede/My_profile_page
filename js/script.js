@@ -206,9 +206,6 @@ $.ajax({
     dataType: "json",
     url:"sliderfetch.php",
     success: function(data){
-        console.log(data[0][2]);
-        console.log(data.length);
-
         h1.innerHTML=data[0][0];
         p1.innerHTML=data[0][1];
         img1.src=data[0][2];
@@ -222,6 +219,23 @@ $.ajax({
 });
  
 }
+//Resume and pause function
+function Timer(callback, delay) {
+    var timerId, delay;
+
+    this.pause = function() {
+        window.clearTimeout(timerId);
+    };
+
+    this.resume = function() {
+        window.clearTimeout(timerId);
+        timerId = window.setTimeout(callback, delay);
+    };
+
+    this.resume();
+}
+// Ends Resume and pause function
+
 function changepic(n,data){
     h1.innerHTML=data[n%5][0];
     p1.innerHTML=data[n%5][1];
@@ -252,5 +266,37 @@ function classChange(img,h,p){
         default:
         break;
     }
-    setTimeout(function(){changepic(n+1,data);},3000);
+// setTimeout(function(){changepic(n+1,data);},3000);
+    var timer = new Timer(function() {
+        changepic(n+1,data);
+    }, 3000);
+
+//Pause slider
+    $("#slidediv").mouseover(function(){
+        timer.pause();
+        $("#previous").show();
+        $("#next").show();
+    });
+//Resume slider
+    $("#slidediv").mouseleave(function(){
+        timer.resume();
+        $("#previous").hide();
+        $("#next").hide();
+    });
+
+
+    //Toggle next button
+    
+// $("#next").click(function(){
+//     var timer = new Timer(function() {
+//         changepic(n+1,data);
+//     }, 3000);
+// });
+//Toggle previous button
+// if(n==0){}else{
+// $("#previous").click(function(){
+//     changepic(n-1,data)
+// });
+// }
+
 }
