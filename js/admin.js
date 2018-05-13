@@ -23,6 +23,55 @@ $("#bio").click(function(){
 });
 
 
+//messages fetch
+$(".header img").click(function(){
+
+    //Ajax fetch
+    var messageclick=$(".header img").val();
+    $.ajax({
+        method:"post",
+        dataType: "json",
+        data: {data: messageclick},
+        url:"contactform.php",
+        success: function(data){
+            var x=data.length;
+            for(var i = 0; i < x; i++) {
+                var div = document.createElement('div');
+                var p = document.createElement('p');
+                var p1 = document.createElement('p');
+                var p2 = document.createElement('p');
+                var b = document.createElement('b');
+                var b1 = document.createElement('b');
+                var b2 = document.createElement('b');
+                var br = document.createElement('br');
+                var hr = document.createElement('hr');
+                b.append("Name: ");
+                p.append(b);
+                p.append(data[i][0]);
+                div.append(p);
+
+                b1.append("Email: ");
+                p1.append(b1);
+                p1.append(data[i][1]);
+                div.append(p1);
+
+                b2.append("Message: ");
+                p2.append(b2);
+                p2.append(br);
+                p2.append(data[i][2]);
+                div.append(p2);
+                div.append(hr);
+                $('.messagediv').append(div);
+              }
+   
+        },
+        error: function(e){
+            console.log(e);
+        }
+    });
+    $(".messagediv").toggle();
+});
+
 //Upload profile picture event
 $("#profileuploadhide").change(function(){
     var file_data = $('#profileuploadhide').prop('files')[0];  

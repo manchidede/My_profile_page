@@ -1,6 +1,50 @@
 body{
     margin: 0px;
     background-color: rgb(6, 141, 40);
+    position: relative;
+}
+.header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    background-color: black;
+    width: 100%;
+    z-index: 1;
+}
+.header img{
+    width: 40px;
+    height: 30px;
+    -webkit-filter: invert(100%); /* Safari */
+    filter: invert(100%);
+    float: right;
+    margin: 10px 40px 0px 0px;
+}
+.header img:hover{
+    cursor: pointer;
+    -webkit-filter: invert(100%); /* Safari */
+    filter: invert(70%);
+}
+.messagediv{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: rgb(222, 228, 228);
+    border: solid thin rgb(63, 55, 55);
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    animation: messagebox 2s;
+    overflow: auto;
+    height: 400px;
+}
+@keyframes messagebox{
+    0%{height: 0px;}
+    100%{height: 400px;}
+}
+.messagediv p{
+    margin: 5px 0px;
 }
 .container{
     display: flex;
@@ -8,7 +52,7 @@ body{
 .first{
     flex: 2;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 80px;
 }
 .first> div{
     position: relative;
@@ -98,13 +142,14 @@ body{
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
 .first >span input{
     height: 25px;
     padding: 5px;
 }
 .second{
     flex: 6;
-    padding: 50px 20px 10px 20px;
+    padding: 80px 20px 10px 20px;
     text-align: center;
 }
 .second > h1{
@@ -138,7 +183,7 @@ body{
 }
 .third{
     flex: 4;
-    padding-top: 30px;
+    padding-top: 60px;
     text-align: center;
 }
 .third h2{

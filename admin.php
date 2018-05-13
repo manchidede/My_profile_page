@@ -26,6 +26,13 @@ foreach ($result as $row) {
     <script src="js/admin.js"></script>
 </head>
 <body>
+    <div class="header">
+    <img src="images/messageicon.png" alt="">
+    </div>
+
+    <div class="messagediv">
+    </div>
+
     <div class="container">
         <div class="first">
             <div><img id="profilepic" src="<?php echo "$profilepic"; ?>" alt=""><img id="profilepicupload" src="images/picedit.png" alt=""></div>

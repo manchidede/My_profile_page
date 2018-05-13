@@ -173,6 +173,29 @@ for (i = 0; i < starlen; i++) {
 //Contact form
 $("#contactbutton").click(function(){
     $("#contactform").toggle();
+    
+});
+
+//contact form ajax
+$("#formsubmit").click(function(){
+    var formname=$("#formname").val();
+var formemail=$("#formemail").val();
+var formcontent=$("#formcontent").val();
+var formdata={name:formname, email:formemail,content:formcontent};
+            $.ajax({
+                method:"post",
+                data: formdata,
+                url:"contactform.php",
+                success: function(response){
+                    alert(response);
+                },
+                error: function(e){
+                    console.log(e);
+                }
+            });
+
+            $("#contactform").toggle();
+    
 });
 
 
