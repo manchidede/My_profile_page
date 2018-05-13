@@ -1,4 +1,8 @@
 <?php
+if($_GET["password"]!=chidi){
+    header("Location: index.php");
+    exit;
+}
 include 'dbconnect.php';
 $sql = "SELECT Profilepic, skills, hobbies, bio FROM edittable";
 $result = $conn->query($sql);
@@ -18,7 +22,6 @@ foreach ($result as $row) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet">
     <link rel="stylesheet" href="css/admin.css">
     <script src="js/admin.js"></script>
 </head>

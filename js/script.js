@@ -2,7 +2,11 @@ var img1 = document.getElementById("img1");
 var h1 = document.getElementById("h1");
 var p1 = document.getElementById("p1");
 var slidetext1 = document.getElementById("slidetext1");
+
+
 function slide(){
+
+
 
 //Like button
     var imglike=document.getElementById("imglike");
@@ -165,6 +169,13 @@ for (i = 0; i < starlen; i++) {
         }
     }
 }
+
+//Contact form
+$("#contactbutton").click(function(){
+    $("#contactform").toggle();
+});
+
+
 
 //slider Ajax
 $.ajax({

@@ -88,8 +88,16 @@ $conn = null;
                         <img src="images/starempty.png" alt="">
                         <img src="images/starempty.png" alt="">
                     </div>
+                    <button id="contactbutton">Contact Me</button>
+                    <div id="contactform">
+                    <input type="text" id="formname" placeholder="Name">
+                    <input type="text" id="formemail" placeholder="Email">
+                    <textarea id="formcontent" rows="7" placeholder="Message"></textarea><br>
+                    <button id="formsubmit" >Send</button>
+                    </div>
                 </div>
                 </div>
+                <div class="footer">Chidi 2018 &copy;</div>
             <script src="js/script.js"></script>
         </body>
 </html>
