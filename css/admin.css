@@ -131,6 +131,7 @@ body{
 }
 .text{
     display: inline-block;
+    width: 70%;
 }
 .img{
     float: right;
